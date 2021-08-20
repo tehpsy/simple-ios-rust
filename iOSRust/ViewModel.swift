@@ -1,6 +1,6 @@
 import Foundation
 
-class ViewModel {
+class RustWrapper {
     init() {
         let result = rust_hello("world")
         let swift_result = String(cString: result!)
