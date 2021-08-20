@@ -11,6 +11,8 @@
 		77756FEE26CF8CB600D4B9E4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77756FED26CF8CB600D4B9E4 /* ContentView.swift */; };
 		77756FF026CF8CB700D4B9E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77756FEF26CF8CB700D4B9E4 /* Assets.xcassets */; };
 		77756FF326CF8CB700D4B9E4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77756FF226CF8CB700D4B9E4 /* Preview Assets.xcassets */; };
+		77756FFB26CF9E8D00D4B9E4 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77756FFA26CF9E8D00D4B9E4 /* ViewModel.swift */; };
+		7775700026CF9F6C00D4B9E4 /* librust.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77756FFD26CF9F6C00D4B9E4 /* librust.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,9 @@
 		77756FEF26CF8CB700D4B9E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		77756FF226CF8CB700D4B9E4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		77756FF426CF8CB700D4B9E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77756FFA26CF9E8D00D4B9E4 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		77756FFD26CF9F6C00D4B9E4 /* librust.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = librust.a; sourceTree = "<group>"; };
+		77756FFF26CF9F6C00D4B9E4 /* rust.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rust.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7775700026CF9F6C00D4B9E4 /* librust.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,11 +58,14 @@
 		77756FEA26CF8CB600D4B9E4 /* iOSRust */ = {
 			isa = PBXGroup;
 			children = (
-				77756FEB26CF8CB600D4B9E4 /* iOSRustApp.swift */,
-				77756FED26CF8CB600D4B9E4 /* ContentView.swift */,
 				77756FEF26CF8CB700D4B9E4 /* Assets.xcassets */,
+				77756FED26CF8CB600D4B9E4 /* ContentView.swift */,
+				77756FFE26CF9F6C00D4B9E4 /* include */,
 				77756FF426CF8CB700D4B9E4 /* Info.plist */,
+				77756FEB26CF8CB600D4B9E4 /* iOSRustApp.swift */,
+				77756FFC26CF9F6C00D4B9E4 /* lib */,
 				77756FF126CF8CB700D4B9E4 /* Preview Content */,
+				77756FFA26CF9E8D00D4B9E4 /* ViewModel.swift */,
 			);
 			path = iOSRust;
 			sourceTree = "<group>";
@@ -67,6 +76,22 @@
 				77756FF226CF8CB700D4B9E4 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		77756FFC26CF9F6C00D4B9E4 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				77756FFD26CF9F6C00D4B9E4 /* librust.a */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		77756FFE26CF9F6C00D4B9E4 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				77756FFF26CF9F6C00D4B9E4 /* rust.h */,
+			);
+			path = include;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77756FEE26CF8CB600D4B9E4 /* ContentView.swift in Sources */,
+				77756FFB26CF9E8D00D4B9E4 /* ViewModel.swift in Sources */,
 				77756FEC26CF8CB600D4B9E4 /* iOSRustApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,14 +297,23 @@
 				DEVELOPMENT_ASSET_PATHS = "\"iOSRust/Preview Content\"";
 				DEVELOPMENT_TEAM = 7VYBQV3T2Q;
 				ENABLE_PREVIEWS = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/iOSRust/include",
+				);
 				INFOPLIST_FILE = iOSRust/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/iOSRust/lib",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.novationmusic.iOSRust;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/iOSRust/include/rust.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -293,14 +328,23 @@
 				DEVELOPMENT_ASSET_PATHS = "\"iOSRust/Preview Content\"";
 				DEVELOPMENT_TEAM = 7VYBQV3T2Q;
 				ENABLE_PREVIEWS = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/iOSRust/include",
+				);
 				INFOPLIST_FILE = iOSRust/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/iOSRust/lib",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.novationmusic.iOSRust;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/iOSRust/include/rust.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
