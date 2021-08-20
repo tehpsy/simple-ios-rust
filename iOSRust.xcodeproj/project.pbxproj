@@ -101,6 +101,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 77756FF726CF8CB700D4B9E4 /* Build configuration list for PBXNativeTarget "iOSRust" */;
 			buildPhases = (
+				7775700126CFA34200D4B9E4 /* ShellScript */,
 				77756FE426CF8CB600D4B9E4 /* Sources */,
 				77756FE526CF8CB600D4B9E4 /* Frameworks */,
 				77756FE626CF8CB600D4B9E4 /* Resources */,
@@ -157,6 +158,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7775700126CFA34200D4B9E4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(SRCROOT)/iOSRust/include/rust.h",
+				"$(SRCROOT)/iOSRust/lib/librust.a",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ". install.sh\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		77756FE426CF8CB600D4B9E4 /* Sources */ = {

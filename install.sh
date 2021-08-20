@@ -2,8 +2,8 @@
 
 cd rust
 
-cargo lipo --release
-cbindgen src/lib.rs -l c > rust.h
+~/.cargo/bin/cargo lipo --release
+~/.cargo/bin/cbindgen src/lib.rs -l c > rust.h
 
 cd ..
 
